@@ -31,7 +31,7 @@ const render = renderComponent => props => {
 }
 
 
-const createInputCreator = ReduxFormFieldComponent => (name, renderFunction, PropTypes = {}, defaultProps = {}) => {
+const createInputCreator = ReduxFormFieldComponent => (name, renderFunction, propTypes = {}, defaultProps = {}) => {
   const Component = render(renderFunction)
   Component.displayName = name
 
@@ -42,12 +42,12 @@ const createInputCreator = ReduxFormFieldComponent => (name, renderFunction, Pro
   }
 
   FieldWrapper.displayName = 'FieldWrapper'
-  FieldWrapper.PropTypes = Object.assign({
+  FieldWrapper.propTypes = Object.assign({
     border: PropTypes.bool,
     inlineLabel: PropTypes.bool,
     label: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired
-  }, PropTypes)
+  }, propTypes)
   FieldWrapper.defaultProps = Object.assign({
     border: FormGroup.defaultProps.border,
     inlineLabel: FormGroup.defaultProps.inlineLabel
